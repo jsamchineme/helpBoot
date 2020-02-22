@@ -1,7 +1,8 @@
 import { ModelName, ValidationErrorType, ErrorTypeCode, ErrorTypeCodeMap } from 'src/types';
 
 const modelCodePrefixes = {
-  [ModelName.USER]: 'USR'
+  [ModelName.USER]: 'USR',
+  [ModelName.PROJECT]: 'PRJ',
 };
 
 const ErrorTypeCodes: ErrorTypeCodeMap = {

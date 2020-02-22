@@ -3,7 +3,6 @@ import validateUserSignup from 'src/http/middlewares/requestValidations/userSign
 import validateUserLogin from 'src/http/middlewares/requestValidations/userLogin';
 import wrapAsync from 'src/http/wrapAsync';
 import { userSignup, userLogin } from './controller';
-import verifyToken from 'src/http/middlewares/auth/verifyToken';
 
 const authRouter = Router();
 
