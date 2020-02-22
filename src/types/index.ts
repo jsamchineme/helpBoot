@@ -14,6 +14,7 @@ export interface ErrorResponse {
 export enum ModelName {
   USER = 'user',
   PROJECT = 'project',
+  PROJECT_NEED = 'projectNeed',
 }
 
 export enum ValidationErrorType {
@@ -23,6 +24,8 @@ export enum ValidationErrorType {
   MAX = 'string.max',
   MIN = 'string.min',
   EMAIL = 'string.email',
+  NUMBER = 'number.base',
+  ENUM = 'any.only',
 }
 
 export enum ErrorTypeCode {
@@ -32,6 +35,8 @@ export enum ErrorTypeCode {
   _04 = '04',
   _05 = '05',
   _06 = '06',
+  _46 = '46',
+  _47 = '47',
 }
 
 export interface ErrorTypeCodeMap {
@@ -41,4 +46,6 @@ export interface ErrorTypeCodeMap {
   [ValidationErrorType.MAX]: ErrorTypeCode._04,
   [ValidationErrorType.MIN]: ErrorTypeCode._05,
   [ValidationErrorType.UNKNOWN]: ErrorTypeCode._06,
+  [ValidationErrorType.NUMBER]: ErrorTypeCode._46,
+  [ValidationErrorType.ENUM]: ErrorTypeCode._47,
 }

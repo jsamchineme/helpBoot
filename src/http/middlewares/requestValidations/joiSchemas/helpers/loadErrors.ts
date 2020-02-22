@@ -3,6 +3,7 @@ import { ModelName, ValidationErrorType, ErrorTypeCode, ErrorTypeCodeMap } from 
 const modelCodePrefixes = {
   [ModelName.USER]: 'USR',
   [ModelName.PROJECT]: 'PRJ',
+  [ModelName.PROJECT_NEED]: 'PND',
 };
 
 const ErrorTypeCodes: ErrorTypeCodeMap = {
@@ -12,6 +13,8 @@ const ErrorTypeCodes: ErrorTypeCodeMap = {
   [ValidationErrorType.MAX]: ErrorTypeCode._04,
   [ValidationErrorType.MIN]: ErrorTypeCode._05,
   [ValidationErrorType.UNKNOWN]: ErrorTypeCode._06,
+  [ValidationErrorType.NUMBER]: ErrorTypeCode._46,
+  [ValidationErrorType.ENUM]: ErrorTypeCode._47,
 }
 
 const loadErrors = (modelName: ModelName, errors) => {
@@ -23,23 +26,28 @@ const loadErrors = (modelName: ModelName, errors) => {
   const errorCode = `${modelCodePrefixes[modelName]}_${ErrorTypeCodes[type]}`;
 
   switch (type) {
-    case 'any.required':
+    case ValidationErrorType.REQUIRED:
       message = `The ${field} field is required`;
       break;
-    case 'string.email':
+    case ValidationErrorType.ENUM: // ENUM validation
+      message = `The ${field} field has an unaccepted value`;
+      break;
+    case ValidationErrorType.EMAIL:
       message = `The ${field} field is invalid`;
       break;
-    case 'string.empty':
+    case ValidationErrorType.EMPTY:
       message = `The ${field} field is empty`;
       break;
-    case 'string.min':
+    case ValidationErrorType.MIN:
       message = `The ${field} field is less than ${local.limit} in character length`;
       break;
-    case 'any.unknown':
+    case ValidationErrorType.UNKNOWN:
       message = `The ${field} field is not allowed`;
       break;
-    case 'string.max':
+    case ValidationErrorType.MAX:
       message = `The ${field} field is longer than ${local.limit} in character length`;
+    case ValidationErrorType.NUMBER:
+      message = `The ${field} field is not a number`;
       break;
     default:
       message = 'failed validation';
