@@ -20,3 +20,9 @@ export const editProject = async (req: Request, res: Response) => {
 
   return response.created(res, updatedProject);
 };
+
+export const getProjects = async (req: Request, res: Response) => {
+  const projects = await Project.findAll();
+
+  return response.created(res, projects);
+};
