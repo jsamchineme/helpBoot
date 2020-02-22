@@ -2,51 +2,39 @@ import * as Joi from '@hapi/joi';
 import loadErrors from '../helpers/loadErrors';
 import { ModelName } from 'src/types';
 
-export const email = Joi.string().strict().trim().strict()
-  .min(3)
-  .max(70)
-  .email()
+export const title = Joi.string().trim().min(1).max(100)
   .required()
   .error((errors) => {
     throw loadErrors(ModelName.PROJECT, errors);
   });
 
-
-export const password = Joi.string().trim().strict()
-  .max(40)
+export const shortDescription = Joi.string().trim().min(5).max(100)
   .required()
   .error((errors) => {
     throw loadErrors(ModelName.PROJECT, errors);
   });
 
-export const firstname = Joi.string().trim().min(1).max(30)
+export const fullDescription = Joi.string().trim().min(1).max(10000)
   .required()
   .error((errors) => {
     throw loadErrors(ModelName.PROJECT, errors);
   });
 
-export const lastname = Joi.string().trim().min(1).max(30)
+export const location = Joi.string().trim().min(1).max(200)
   .required()
   .error((errors) => {
     throw loadErrors(ModelName.PROJECT, errors);
   });
 
-export const shortBio = Joi.string().trim().min(10).max(200)
+export const startDate = Joi.string().trim().min(1).max(50)
+  .required()
   .error((errors) => {
     throw loadErrors(ModelName.PROJECT, errors);
   });
 
-export const locationCity = Joi.string().trim().min(1).max(50)
+export const endDate = Joi.string().trim().min(1).max(50)
+  .required()
   .error((errors) => {
     throw loadErrors(ModelName.PROJECT, errors);
   });
 
-export const locationState = Joi.string().trim().min(1).max(50)
-  .error((errors) => {
-    throw loadErrors(ModelName.PROJECT, errors);
-  });
-
-export const address = Joi.string().trim().min(1).max(200)
-  .error((errors) => {
-    throw loadErrors(ModelName.PROJECT, errors);
-  });
