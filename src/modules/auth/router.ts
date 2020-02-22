@@ -15,10 +15,4 @@ authRouter.post('/login',
   validateUserLogin,
   wrapAsync(userLogin));
 
-authRouter.post('/testJWT',
-  verifyToken,
-  wrapAsync(async (req, res) => {
-    return res.status(200).send(req.decoded);
-  }));
-
 export default authRouter;
