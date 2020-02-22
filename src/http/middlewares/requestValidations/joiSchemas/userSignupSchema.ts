@@ -4,7 +4,10 @@ import {
   password,
   firstname,
   lastname,
-  username,
+  address,
+  shortBio,
+  locationCity,
+  locationState,
 } from './validationFields/user';
 
 
@@ -13,7 +16,10 @@ const schema = Joi.object({
   password,
   firstname,
   lastname,
-  username,
+  address,
+  shortBio,
+  locationCity,
+  locationState,
 });
 
 

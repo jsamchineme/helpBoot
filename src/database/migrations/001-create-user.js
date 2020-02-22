@@ -7,6 +7,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+      },
       firstname: {
         allowNull: false,
         type: Sequelize.STRING,
@@ -15,15 +20,17 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      username: {
-        allowNull: false,
+      shortBio: {
         type: Sequelize.STRING,
-        unique: true,
       },
-      email: {
-        allowNull: false,
+      locationCity: {
         type: Sequelize.STRING,
-        unique: true,
+      },
+      locationState: {
+        type: Sequelize.STRING,
+      },
+      address: {
+        type: Sequelize.STRING,
       },
       password: {
         allowNull: false,

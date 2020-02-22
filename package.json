@@ -16,6 +16,7 @@
     "start:prod": "link-module-alias && node dist/server.js",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "db:migrate": "npm run rebuild && link-module-alias && sequelize db:migrate",
+    "db:refresh": "npm run db:reset && npm run db:migrate",
     "db:reset": "npm run rebuild && link-module-alias && sequelize db:migrate:undo:all"
   },
   "_moduleAliases": {
