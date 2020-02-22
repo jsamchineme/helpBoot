@@ -12,7 +12,8 @@ export interface ErrorResponse {
 }
 
 export enum ModelName {
-  USER = 'user'
+  USER = 'user',
+  PROJECT = 'project',
 }
 
 export enum ValidationErrorType {
