@@ -7,3 +7,10 @@ export const createProject = async (req: Request, res: Response) => {
 
   return response.created(res, newProject);
 };
+
+export const editProject = async (req: Request, res: Response) => {
+  const project = await Project.findByPk(req.params.projectId);
+  const updatedProject = await project.update(req.body);
+
+  return response.created(res, updatedProject);
+};
