@@ -8,6 +8,7 @@ export default class Project extends Model {
   public shortDescription!: string;
   public fullDescription!: string;
   public banner!: string | null;
+  public visible!: number;
   public location!: string;
   public startDate!: string;
   public endDate!: string;
@@ -48,6 +49,10 @@ Project.init({
   },
   startDate: {
     type: DataTypes.STRING,
+    allowNull: false,
+  },
+  visible: {
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   endDate: {

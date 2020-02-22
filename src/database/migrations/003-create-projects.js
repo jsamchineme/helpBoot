@@ -34,6 +34,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      visible: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
       endDate: {
         type: Sequelize.STRING,
         allowNull: false,
