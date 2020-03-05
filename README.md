@@ -1,2 +1,18 @@
-# nodejs-typescript-starter-kit
-A boilerplate starter kit for NodeJS/TypeScript projects
+## HelpBoot
+Create projects for social good and get help executing them
+
+
+## API documentation
+
+<div class="postman-run-button"
+data-postman-action="collection/import"
+data-postman-var-1="d9e3467d67908df0831a"></div>
+<script type="text/javascript">
+  (function (p,o,s,t,m,a,n) {
+    !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
+    !o.getElementById(s+t) && o.getElementsByTagName("head")[0].appendChild((
+      (n = o.createElement("script")),
+      (n.id = s+t), (n.async = 1), (n.src = m), n
+    ));
+  }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
+</script>
