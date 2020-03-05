@@ -9,15 +9,15 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "start": "ts-node -r tsconfig-paths/register src/server.ts",
     "start:dev": "concurrently --handle-input \"wait-on dist/server.js && nodemon\" \"tsc -w -p tsconfig.build.json\" ",
     "rebuild": "rimraf dist && npm run build",
     "prestart:prod": "npm run rebuild",
-    "start:prod": "link-module-alias && node dist/server.js",
+    "start": "link-module-alias && node dist/server.js",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "db:migrate": "npm run rebuild && link-module-alias && sequelize db:migrate",
     "db:refresh": "npm run db:reset && npm run db:migrate",
-    "db:reset": "npm run rebuild && link-module-alias && sequelize db:migrate:undo:all"
+    "db:reset": "npm run rebuild && link-module-alias && sequelize db:migrate:undo:all",
+    "heroku-postbuild": "npm run db:migrate"
   },
   "_moduleAliases": {
     "src": "dist"
