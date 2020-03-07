@@ -21,4 +21,9 @@ export const ERROR_CODES = {
     status: 404,
     code: 'PND_01'
   },
+  VRQ_01: {
+    message: 'volunteer request need not found',
+    status: 404,
+    code: 'VRQ_01'
+  },
 }
