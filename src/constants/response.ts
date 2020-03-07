@@ -6,6 +6,11 @@ export const ERROR_CODES = {
     status: 404,
     code: 'USR_07'
   },
+  USR_08: {
+    message: 'account already exists',
+    status: 409,
+    code: 'USR_08'
+  },
   AUTH_01: {
     message: 'invalid token',
     status: 403,
