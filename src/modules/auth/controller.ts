@@ -6,6 +6,14 @@ import { ERROR_CODES } from 'src/constants/response';
 import generateToken from 'src/utils/generateToken';
 
 export const userSignup = async (req: Request, res: Response) => {
+  // just doing this for speed, should refactor so one query checks for username and email uniqueness
+  const foundEmail = await User.getByField('email', req.body.email);
+  const foundUsername = await User.getByField('username', req.body.username);
+
+  if (foundEmail || foundUsername) {
+    throw httpException.handle(ERROR_CODES.USR_08);
+  }
+
   const newUser = await User.create(req.body);
 
   return response.created(res, newUser);
