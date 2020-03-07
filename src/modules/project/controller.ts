@@ -3,6 +3,7 @@ import response from 'src/http/response';
 import { Response, Request } from 'express';
 import httpException from 'src/http/httpException';
 import { ERROR_CODES } from 'src/constants/response';
+import ProjectNeed from 'src/modules/projectNeed/model';
 
 export const createProject = async (req: Request, res: Response) => {
   const newProject = await Project.create({
@@ -31,3 +32,14 @@ export const getProjects = async (req: Request, res: Response) => {
 
   return response.created(res, projects);
 };
+
+export const getOneProject = async (req: Request, res: Response) => {
+  const project = await Project.findByPk(req.params.projectId, {
+    include: [{
+      model: ProjectNeed,
+      as: 'projectNeeds'
+    }]
+  });
+
+  return response.created(res, project);
+}
