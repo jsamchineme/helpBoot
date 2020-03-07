@@ -11,4 +11,14 @@ export const ERROR_CODES = {
     status: 403,
     code: 'AUTH_01'
   },
+  PRJ_01: {
+    message: 'project not found',
+    status: 404,
+    code: 'PRJ_01'
+  },
+  PND_01: {
+    message: 'project need not found',
+    status: 404,
+    code: 'PND_01'
+  },
 }
