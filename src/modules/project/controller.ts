@@ -31,3 +31,9 @@ export const getProjects = async (req: Request, res: Response) => {
 
   return response.created(res, projects);
 };
+
+export const getOneProject = async (req: Request, res: Response) => {
+  const project = await Project.findByPk(req.params.projectId);
+
+  return response.created(res, project);
+}
