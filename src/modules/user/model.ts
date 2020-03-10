@@ -41,6 +41,10 @@ User.init({
     type: DataTypes.STRING,
     allowNull: false,
   },
+  username: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   shortBio: {
     type: DataTypes.STRING,
   },
